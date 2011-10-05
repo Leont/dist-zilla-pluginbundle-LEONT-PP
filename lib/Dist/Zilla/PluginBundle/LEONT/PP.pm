@@ -4,12 +4,11 @@ use Moose;
 use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
-my @bundles = qw/Basic LEONT::Base/;
-
 sub configure {
 	my $self = shift;
 
-	$self->add_bundle("\@$_") for @bundles;
+	$self->add_bundle('@Basic');
+	$self->add_bundle('@LEONT::Base', $self->config_slice('skip_kwalitee'));
 	return;
 }
 
