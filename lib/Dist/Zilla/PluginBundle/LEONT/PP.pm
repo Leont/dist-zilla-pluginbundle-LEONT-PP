@@ -1,14 +1,16 @@
 package Dist::Zilla::PluginBundle::LEONT::PP;
 
 use Moose;
-use Dist::Zilla;
-with 'Dist::Zilla::Role::PluginBundle::Easy';
+extends 'Dist::Zilla::PluginBundle::LEONT::Base';
+with qw/Dist::Zilla::Role::PluginBundle::Easy/;
+
+my @basic = qw/GatherDir PruneCruft ManifestSkip MetaYAML License Readme ExtraTests ExecDir ShareDir Manifest TestRelease ConfirmRelease UploadToCPAN MakeMaker/;
 
 sub configure {
 	my $self = shift;
 
-	$self->add_bundle('@Basic');
-	$self->add_bundle('@LEONT::Base', $self->config_slice('skip_kwalitee'));
+	$self->add_plugins(@basic);
+	$self->SUPER::configure;
 	return;
 }
 
@@ -23,7 +25,7 @@ __END__
 This is identical to the following setup:
 
     [@Basic]
-	[@LEONT::Base]
+    [@LEONT::Base]
 
 =begin Pod::Coverage
 
