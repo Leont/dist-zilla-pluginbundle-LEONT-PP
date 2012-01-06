@@ -2,7 +2,7 @@ package Dist::Zilla::PluginBundle::LEONT::PP;
 
 use Moose;
 extends 'Dist::Zilla::PluginBundle::LEONT::Base';
-with qw/Dist::Zilla::Role::PluginBundle::Easy/;
+with qw/Dist::Zilla::Role::PluginBundle::Easy Dist::Zilla::Role::PluginBundle::Config::Slicer/;
 
 my @basic = qw/GatherDir PruneCruft ManifestSkip MetaYAML License Readme ExtraTests ExecDir ShareDir Manifest TestRelease ConfirmRelease UploadToCPAN MakeMaker/;
 
