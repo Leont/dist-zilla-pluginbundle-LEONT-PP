@@ -16,9 +16,9 @@ sub configure {
 
 1;
 
-__END__
-
 #ABSTRACT: Plugins LeonT uses for pure perl modules
+
+__END__
 
 =head1 DESCRIPTION
 
